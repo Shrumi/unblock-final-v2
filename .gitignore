@@ -1,0 +1,13 @@
+_build
+bin
+out
+assets
+user
+logs
+update
+.vscode
+.vs
+.vscode
+.idea
+*.log
+lua

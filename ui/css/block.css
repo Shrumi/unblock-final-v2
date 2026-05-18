@@ -1,0 +1,65 @@
+.block {
+    display         : block;
+    width           : 100%;
+    margin          : 0 0 1.1em 0;
+    background-color: rgba(32, 35, 50, 0.75);
+    border          : 1px solid rgba(255, 255, 255, 0.09);
+    opacity         : 0;
+    filter          : blur(10px);
+    visibility      : hidden;
+    will-change     : transform, opacity, filter, background-color, border-color;
+    transform       : translateY(10px) ;
+}
+
+main article.active .block {
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    animation : blockReveal 0.45s ease-in-out forwards;
+    visibility: visible;
+}
+
+@keyframes blockReveal {
+    to {
+        opacity  : 1;
+        filter   : blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+main article.active .block:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+main article.active .block:nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+main article.active .block:nth-child(3) {
+    animation-delay: 0.20s;
+}
+
+main article.active .block:nth-child(4) {
+    animation-delay: 0.30s;
+}
+
+main article.active .block:nth-child(5) {
+    animation-delay: 0.40s;
+}
+
+main article.active .block:nth-child(6) {
+    animation-delay: 0.50s;
+}
+
+main article.active .block:nth-child(n+7) {
+    animation-delay: 0.60s;
+}
+
+main article.active .block:hover {
+    background-color: rgba(45, 52, 74, 0.88);
+    border-color    : rgba(255, 255, 255, 0.22);
+}
+
+.block h2 {
+    margin        : 1.4vw 1.7vw;
+    font-weight   : 600;
+    letter-spacing: -0.015vw;
+}

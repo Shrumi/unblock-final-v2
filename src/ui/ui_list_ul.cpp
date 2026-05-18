@@ -1,0 +1,102 @@
+#include "ui_list_ul.h"
+
+ListUl::ListUl(std::string_view name) : BaseElement(name)
+{
+	_type = "list_ul";
+}
+
+void ListUl::initialize()
+{
+	auto global_js = JSGlobalObject();
+
+	if (!_create)
+		_create = global_js["createListUl"];
+
+	if (!_remove)
+		_remove = global_js["removeListUl"];
+
+	if (!_show)
+		_show = global_js["showListUl"];
+
+	if (!_hide)
+		_hide = global_js["hideListUl"];
+
+	if (!_create_li)
+		_create_li = global_js["createListUlLiAdd"];
+
+	if (!_create_li_success)
+		_create_li_success = global_js["createListUlLiAddSuccess"];
+
+	if (!_add_class)
+		_add_class = global_js["addClassListUl"];
+
+	if (!_remove_class)
+		_remove_class = global_js["removeClassListUl"];
+
+	if (!_clear_li)
+		_clear_li = global_js["clearListUl"];
+}
+
+void ListUl::createLi(Localization::Str text)
+{
+	auto _text = text();
+
+	runCodeToJS([this, _text]
+			{ ASSERT_ARGS(_create_li({ name(), _text.c_str() }).ToBoolean() == true, "Couldn't create_li a {} named [{}]", _type, name()); });
+}
+
+void ListUl::createLiSuccess(Localization::Str text, bool state)
+{
+	if (!_created)
+		return;
+
+	auto _text = text();
+
+	runCodeToJS(
+		[this, _text, state]
+		{
+			ASSERT_ARGS(
+				_create_li_success({ name(), _text.c_str(), state }).ToBoolean() == true,
+				"Couldn't create_li_success a {} named [{}]",
+				_type,
+				name()
+			);
+		}
+	);
+}
+
+void ListUl::addClass(std::string_view name_class)
+{
+	runCodeToJS(
+		[this, name_class]
+		{
+			if (!_created)
+				return;
+			ASSERT_ARGS(_add_class({ name(), name_class.data() }).ToBoolean() == true, "Couldn't addClass a {} named [{}]", _type, name());
+		}
+	);
+}
+
+void ListUl::removeClass(std::string_view name_class)
+{
+	runCodeToJS(
+		[this, name_class]
+		{
+			if (!_created)
+				return;
+			ASSERT_ARGS(_remove_class({ name(), name_class.data() }).ToBoolean() == true, "Couldn't removeClass a {} named [{}]", _type, name());
+		}
+	);
+}
+
+void ListUl::clear()
+{
+	runCodeToJS(
+		[this]
+		{
+			if (!_created)
+				return;
+			ASSERT_ARGS(_clear_li({ name() }).ToBoolean() == true, "Couldn't clear a {} named [{}]", _type, name());
+		}
+	);
+}

@@ -1,0 +1,313 @@
+// NAV
+str_h2_home=Главная
+str_h2_setting=Настройки
+
+// Footer BUTTON
+str_link_to_github=↗ GitHub
+str_link_to_telegram=↗ Telegram
+
+// BUTTON HOME
+str_b_start_unblock=▶ Запустить Zapret
+str_b_restart_unblock=🔄 Перезапустить Zapret
+str_b_stop_unblock=⏹ Остановить Zapret
+str_b_stop_service_all=⏹ Остановить все службы
+
+str_b_start_testing=🧪 Тестировать
+str_b_start_find_config=🔍 Подобрать конфиг
+
+// console text
+str_console_selected_config=Выбрана конфигурация [{}].
+str_console_not_find_fake_key=fake ключ [{}] не найден! Доступные ключи [{}].
+
+// console Input
+str_console_input_success=Успех: {}
+str_console_input_info=Информация: {}
+str_console_input_warning=Предупреждение: {}
+str_console_input_please=Пожалуйста, {}:
+str_console_input_error=Ошибка: {}
+str_console_input_forbidden_characters=Ввести можно только 0 или 1!
+str_console_input_get_string=введите текст и нажмите Enter
+str_console_input_pause={} Нажмите enter чтобы продолжить
+str_console_input_get_u32=введите число и нажмите Enter (Только целочисленные значения)
+str_console_input_get_u32_invalid_argument=Ввести можно только целочисленные значения!
+str_console_input_get_u32_out_of_range=Введённое значение слишком большое!
+str_console_input_get_u32_unknown=Неизвестная ошибка, введите число!
+str_console_input_send_num=нажмите на один из вариантов [{}]
+str_console_input_get_bool=нажмите ENTER для подтверждения, ESC для отмены
+str_console_input_select_from_list=символ '>>' указывает текущие положение.
+стрелка ↓ или numpad 2 на клавиатуре для выбора по списку ниже.
+стрелка ↑ или numpad 8 на клавиатуре для выбора по списку выше.
+клавиша Enter для подтверждения.
+str_console_input_please_select=выберите один из вариантов
+
+// services info
+str_service_zapret_description=DPI программное обеспечение для обхода блокировки.
+str_error_create_service=не удаётся создать службу [{}], причина [{}].
+str_error_stoping_service=служба [{}] не остановлена или в прогрессе остановки, запустить не возможно!
+str_wait_startig_service=подождите окончания запуска службы [{}]
+str_wait_stoping_service=подождите окончания остановки службы [{}]
+str_error_wait_time_start_service=истекло время ожидания запуска службы [{}], процесс запуска прерван, причина не известна!
+str_expired_wait_time_start_service=истекло время ожидания запуска службы [{}], процесс будет остановлен!
+str_success_start_service=служба [{}] запущена.
+str_success_stop_service=служба [{}] остановлена.
+str_warning_no_start_service=служба [{}] была запущена но неожиданно сменила свой статус.
+
+// Warning/error url
+str_warning_url=⚠ Проблема доступа: {}
+str_result_url_testing=Тестирование завершилось с результатом [{}] из [{}] общий успех [{}%]
+str_base_testing_url_success=Базовое тестирование успешно, запуск полного тестирование...
+
+// Success url
+str_success_url=✅ Успешный доступ: {}
+
+// Common
+str_please_wait=⏳ Подождите...
+str_warning=⚠ Внимание
+str_error=❌ Ошибка
+str_info=ℹ Информация
+str_not_selected=◌ Не выбрано
+
+str_window_wait_response_from_server_description=⏳ Ожидание ответа от сервера...
+Загрузка данных. Это может занять несколько секунд.
+
+str_show_info_selected_service_setting=📋 Показать настройки
+str_window_info_selected_service_setting=📋 Текущие настройки:
+├ Zapret2 конфигурация: [{}]
+└ Zapret2 конфиг версия: [{}]
+
+str_warning_copy_application_running=Unblock уже запущен. Повторный запуск невозможен.
+
+// Removing
+str_button_remove=🗑 Удалить Unblock
+str_remove_app_description=🗑 Удаление Unblock
+Будут удалены все службы Unblock, системные параметры восстановлены из резервных копий, а настройки сброшены.
+Процесс необратим. Вы уверены, что хотите продолжить?
+
+// Input console log info
+str_beginning_auto_selection=🔍 Начат авто-подбор конфигурации
+
+// BLOCK HOME
+str_h2_active_service=📊 Активные службы:
+
+str_h2_verified_domains=✅ Доступные домены (Zapret):
+str_h2_verified_domains_video=🎥 YouTube (Zapret):
+
+// Check update app startup
+str_checkbox_check_update_app_startup_title=🔄 Проверять обновления при запуске
+str_checkbox_check_update_app_startup_description=Автоматически проверять наличие новой версии Unblock при каждом запуске приложения.
+str_window_error_update_unblock=❌ Ошибка обновления
+Не удалось проверить или загрузить обновление.
+Возможные причины:
+• Нет интернет-подключения
+• Ограничен доступ к GitHub
+• Проблемы с сетью
+
+Проверьте соединение и попробуйте снова.
+
+// Check update
+str_bottom_check_update_app_startup_title=🔍 Проверить обновления
+
+// Secondary Window
+str_b_secondary_window_ok=✅ OK
+str_b_secondary_window_yes=✅ Да
+str_b_secondary_window_no=❌ Нет
+str_b_secondary_window_cancel=↩ Отмена
+
+// Secondary Window start\stop service
+str_window_service_start_wait_description=▶ Запуск служб...
+str_window_service_stop_wait_description=⏹ Остановка служб...
+
+// Secondary Window Wait testing domain
+str_secondary_window_description_wait_domain=📡 Тестирование доменов...
+
+// Secondary Window auto start wait
+str_window_auto_start_wait_description=🔍 Подбор конфигурации...
+Факторы влияния:
+• Качество интернета
+• Доступность ресурсов
+• Уровень блокировок
+
+str_window_auto_start_wait_name_strategy_description=🧪 Проверка варианта обхода:
+├ Конфигурация: [{}]
+└ Версия стратегий: [{}]
+
+str_window_configuration_selection_error=❌ Автоподбор не удался
+Причины:
+• Ресурсы не отвечают
+• Нестабильное соединение
+Решение:
+• Выберите конфиг вручную
+• Или воспользуйтесь VPN
+
+// Secondary Window info new update unblock
+str_window_update_unblock=🔄 Доступно обновление Unblock v{}
+Приложение будет автоматически обновлено и перезапущено.
+Вы хотите установить обновление сейчас?
+
+str_window_wait_update_unblock=⏳ Выполняется загрузка обновления Unblock [{:.2f}%]...
+Не закрывайте приложение. После завершения оно перезапустится автоматически.
+
+str_window_check_update_unblock=🔍 Проверка обновлений...
+Ищем доступные обновления для Unblock.
+
+// Secondary Window config not found
+str_window_config_not_found_title=📭 Конфигурация не выбрана
+str_window_config_not_found_description=Конфигурационный файл не найден.
+Это может быть первый запуск программы или файл был удалён.
+Будет автоматически запущен подбор оптимальной конфигурации для вашего провайдера.
+Процесс займёт некоторое время.
+
+// Secondary Window config found
+str_window_config_found_title=📂 Найдена предыдущая конфигурация
+str_window_config_found_proxy_description=📂 Найдена предыдущая конфигурация: [{}]
+Запустить автоматический подбор новой конфигурации?
+Да — искать другой вариант
+Нет — использовать текущий
+
+str_window_config_found_description=📂 Найдена предыдущая конфигурация:
+├ Конфиг: [{}]
+└ Версия: [{}]
+Запустить автоматический подбор новой конфигурации?
+Да — искать другой вариант
+Нет — использовать текущий
+
+// Secondary Window continue select strategy
+str_window_continue_select_strategy_title=✅ Конфигурация подобрана
+str_window_continue_select_strategy_description=Выбран:
+├ Конфиг: [{}]
+└ Версия: [{}]
+
+Рекомендуем проверить доступность сайтов самостоятельно.
+Если всё работает — нажмите «Нет», чтобы завершить подбор.
+Если нужен другой вариант — нажмите «Да», чтобы продолжить поиск.
+
+// Secondary Window warning to conflict service
+str_window_warning_conflict_service=⚠ Конфликтующие службы: [{}]
+Рекомендуется удалить их для корректной работы Unblock.
+Удалить?
+
+// Secondary Window Warning about the introduction into the system
+str_window_to_warn_enable_dns_hosts_description=⚙ Для работы нужен доступ к системному файлу hosts
+Что это даёт:
+• Обход региональных блокировок
+• Обход DNS-фильтрации
+Безопасно: можно отключить в настройках.
+Текущие сервисы: [{}].
+
+str_window_wait_update_dns_description=🔄 Загрузка локального DNS [{:.2f}%]... 
+Идёт обновление системного файла hosts для обхода блокировок.
+Это может занять несколько минут.
+
+str_window_wait_test_whitelist_description=🔍 Проверка белых списков провайдера...
+Unblock не предоставляет средств обхода таких списков. Тест определит, есть ли ограничения.
+Это может занять некоторое время.
+
+str_window_whitelist_description=⚠ Обнаружены белые списки у провайдера
+Unblock не может обойти ограничения, основанные на белых списках.
+Доступ может быть ограничен для многих сервисов.
+
+str_window_warning_no_internet_description=⚠ Отсутствует подключение к интернету
+Проверьте сетевое соединение, кабели или Wi-Fi.
+Unblock не сможет работать без доступа в сеть.
+
+str_button_start_dns_hosts_update_title=🔄 Обновить локальный DNS
+
+// Setting titles blocks
+str_setting_common_title=⚙ Общие
+str_setting_unblock_title=🔓 Zapret2
+
+// Setting common show console
+str_checkbox_show_console_title=📟 Показывать консоль
+str_checkbox_show_console_description=Открывает окно с логами работы Unblock.
+
+// Setting common testing on startup
+str_checkbox_testing_startup_title=🧪 Тестировать при запуске
+str_checkbox_testing_startup_description=🧪 Автоматическое тестирование доступности сайтов при запуске приложения.
+При включении этой опции Unblock сразу после старта проверит, работают ли обходы для основных сервисов (YouTube, Discord, Instagram и др.).
+Результаты теста отобразятся на главном экране в виде списка доступных доменов.
+Это поможет быстро убедиться в работоспособности выбранной конфигурации и при необходимости запустить автоподбор заново.
+
+// Setting common enable dns hosts
+str_checkbox_enable_dns_hosts_title=📁 Локальный DNS (hosts)
+str_checkbox_enable_dns_hosts_description=📁 Использование системного файла hosts для обхода DNS-блокировок.
+При включении Unblock добавляет в файл hosts (C:\Windows\System32\drivers\etc\hosts) соответствия доменов и реальных IP-адресов, минуя DNS-серверы провайдера.
+Это позволяет обойти блокировки на уровне DNS без дополнительного ПО.
+Файл hosts проверяется первым при любом сетевом запросе, поэтому подмена срабатывает до обращения к внешним DNS.
+Настройка безопасна: при отключении Unblock восстанавливает оригинальное содержимое hosts.
+
+// Setting common enable local proxy telegram
+str_checkbox_enable_proxy_tg_title=📱 Прокси для Telegram
+str_checkbox_enable_proxy_tg_description=🔒 Локальный прокси для Telegram
+Создаёт прокси-сервер на вашем устройстве. Он не подключается к сторонним серверам и работает только локально для обхода блокировок.
+str_button_proxy_link_tg_title=🔗 Подключить прокси к Telegram
+
+// Setting checkbox zapret winws2 enable
+str_unblock_enable_title=🔓 Включить Zapret2 (winws2)
+str_unblock_enable_description=Основной режим обхода блокировок на основе DPI-обходчика Zapret2 (winws2).
+Анализирует и модифицирует сетевые пакеты в реальном времени, подменяя параметры TLS-рукопожатия (ClientHello) и другие сигнатуры.
+Позволяет обходить большинство видов блокировок без перенаправления трафика на сторонние серверы.
+Работает локально и не требует дополнительных прокси.
+
+// Setting checkbox unblock enable services
+str_unblock_enable_discord_title=🎤 Discord
+str_unblock_enable_discord_description=Обход блокировки Discord.
+→ Включайте вместе с Cloudflare.
+
+str_unblock_enable_messengers_title=💬 Мессенджеры
+str_unblock_enable_messengers_description=Обход блокировки популярных мессенджеров (Telegram, Signal).
+
+str_unblock_enable_cloudflare_title=☁ Cloudflare
+str_unblock_enable_cloudflare_description=Обход блокировок Cloudflare — защитного сервиса, который используют многие сайты.
+Включайте, если сайты с Cloudflare недоступны.
+
+str_unblock_enable_instagram_title=📸 Instagram
+str_unblock_enable_instagram_description=Обход блокировки Instagram.
+
+str_unblock_enable_facebook_title=📘 Facebook
+str_unblock_enable_facebook_description=Обход блокировки Facebook и связанных сервисов (Instagram, Messenger).
+
+str_unblock_enable_torrent_tracers_title=📥 Торрент-трекеры
+str_unblock_enable_torrent_tracers_description=Обход блокировки торрент-трекеров (Rutor, RuTracker и др.).
+
+str_unblock_enable_x.com_title=🐦 X.com
+str_unblock_enable_x.com_description=Обход блокировки X (Twitter).
+
+str_unblock_enable_youtube_title=🎬 YouTube
+str_unblock_enable_youtube_description=Обход блокировки YouTube.
+
+str_unblock_enable_game_mod_title=🎮 Онлайн-игры
+str_unblock_enable_game_mod_description=Режим для игровых серверов.
+⚠ Может вызывать реакцию античитов, ломать стороние сервисы.
+Включайте только при проблемах в игре.
+
+str_unblock_enable_torproject_title=🧅 Torproject
+str_unblock_enable_torproject_description=Обход блокировки Tor.
+
+str_unblock_enable_roblox_title=👾 Roblox
+str_unblock_enable_roblox_description=Обход блокировки платформы Roblox для игр и игровых серверов.
+
+str_unblock_enable_speedtest_title=📊 Speedtest
+str_unblock_enable_speedtest_description=Обход блокировки сервиса тестирования скорости интернета Speedtest.
+
+str_unblock_enable_amazon_title=📦 Amazon
+str_unblock_enable_amazon_description=Обход блокировки Amazon (веб-сайт и облачные сервисы AWS).
+
+// Setting checkbox unblock enable TLD
+str_unblock_enable_tld_title=🌐 Режим TLD-фильтрация
+str_unblock_enable_tld_description=TLD-фильтрация: 
+При включении обход блокировок применяется ко всем доменным зонам из списка configs\blacklist\tld.list (com, net, ua и другие).
+
+// Setting checkbox manual enable
+str_manual_title=✋ Ручной выбор конфигурации
+str_manual_description=Включает ручной выбор → отключает авто-подбор.
+
+// Setting manual config
+str_select_config_title=📂 Выбор конфигурации
+str_select_config_description=Выберите файл стратегии для обхода блокировок.
+Настройки будут сохранены для последующих запусков.
+
+// Setting strategy version
+str_select_version_strategy_title=📚 Версия списка стратегий
+str_select_version_strategy_description=Выбор списка стратегий для обхода блокировок:
+Актуальные (рекомендуется) – новые обновляемые стратегии.
+Устаревшие – старые стратегии из предыдущих версий Unblock.

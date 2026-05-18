@@ -1,0 +1,112 @@
+#include "http_load_content.h"
+#include "curl/curl.h"
+
+HttpsLoad::HttpsLoad(std::string_view url)
+{
+	_curl = curl_easy_init();
+
+	_url = url;
+
+	curl_easy_setopt(_curl, CURLOPT_URL, _url.c_str());
+	curl_easy_setopt(_curl, CURLOPT_FOLLOWLOCATION, 1L);
+}
+
+HttpsLoad::~HttpsLoad()
+{
+	if (_curl)
+		curl_easy_cleanup(_curl);
+}
+
+static int ProgressCallback(float* clientp, curl_off_t dltotal, curl_off_t dlnow, curl_off_t /*ultotal*/, curl_off_t /*ulnow*/)
+{
+	if (dltotal > 0)
+		*clientp = static_cast<float>(dlnow) / dltotal * 100.f;
+
+	return CURLE_OK;
+}
+
+static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* userp)
+{
+	userp->append(static_cast<char*>(contents), size * nmemb);
+	return size * nmemb;
+}
+
+std::vector<std::string> HttpsLoad::run()
+{
+	if (!_curl)
+		return {};
+
+	curl_easy_setopt(_curl, CURLOPT_HTTPGET, 1L);
+	curl_easy_setopt(_curl, CURLOPT_SSL_VERIFYPEER, 0L);
+	curl_easy_setopt(_curl, CURLOPT_TIMEOUT, 20L);
+	curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+	curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &_stringBuffer);
+	curl_easy_setopt(_curl, CURLOPT_NOPROGRESS, 0L);
+	curl_easy_setopt(_curl, CURLOPT_XFERINFOFUNCTION, ProgressCallback);
+	curl_easy_setopt(_curl, CURLOPT_XFERINFODATA, &_progress);
+
+	if (curl_easy_perform(_curl) != CURLcode::CURLE_OK)
+	{
+		Debug::warning("Couldn't get url[{}].", _url);
+		return {};
+	}
+
+	curl_easy_getinfo(_curl, CURLINFO_RESPONSE_CODE, &_code_result);
+
+	std::vector<std::string> _line_content{};
+
+	std::stringstream stream{ _stringBuffer };
+	std::string		  line;
+	while (std::getline(stream, line, '\n'))
+		_line_content.push_back(line);
+
+	return _line_content;
+}
+
+static size_t write_file(void* ptr, size_t size, size_t nmemb, void* stream)
+{
+	std::fstream* file	  = static_cast<std::fstream*>(stream);
+	size_t		  written = size * nmemb;
+	file->write(static_cast<char*>(ptr), written);
+	return written;
+}
+
+void HttpsLoad::run_to_file(std::filesystem::path path)
+{
+	if (!_curl)
+		return;
+
+	auto test = path.parent_path();
+
+	if (!std::filesystem::is_directory(test))
+		std::filesystem::create_directory(test);
+
+	std::fstream file;
+	file.open(path, std::ios::out | std::ios::binary);
+
+	curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, write_file);
+	curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &file);
+	curl_easy_setopt(_curl, CURLOPT_NOPROGRESS, 0L);
+	curl_easy_setopt(_curl, CURLOPT_XFERINFOFUNCTION, ProgressCallback);
+	curl_easy_setopt(_curl, CURLOPT_XFERINFODATA, &_progress);
+
+	if (curl_easy_perform(_curl) != CURLcode::CURLE_OK)
+	{
+		Debug::warning("Couldn't get url[{}].", _url);
+		return;
+	}
+
+	curl_easy_getinfo(_curl, CURLINFO_RESPONSE_CODE, &_code_result);
+
+	file.close();
+}
+
+u32 HttpsLoad::codeResult() const
+{
+	return _code_result;
+}
+
+float HttpsLoad::progress() const
+{
+	return _progress;
+}

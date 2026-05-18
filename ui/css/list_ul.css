@@ -1,0 +1,49 @@
+.list_ul {
+    display: none;
+}
+
+.list_ul.show {
+    display: block;
+}
+
+.list_ul ul {
+    margin          : 0;
+    padding         : 0 1vw;
+    font-size       : 1.4vw;
+    max-height      : 20em;
+    overflow        : auto;
+    border-top      : 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(28, 31, 45, 0.65);
+    will-change     : scroll-position;
+    transform       : translateZ(0);
+    contain         : layout style
+}
+
+.list_ul ul li {
+    position       : relative;
+    padding-left   : 3%;
+    line-height    : 130%;
+    list-style-type: none;
+}
+
+.list_ul ul li p {
+    font-size: 100%;
+    margin   : 0;
+}
+
+.list_ul ul li::after {
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    font-size: 100%;
+}
+
+.list_ul ul .li_success::after {
+    color  : #00e676;
+    content: '\2713';
+}
+
+.list_ul ul .li_fail::after {
+    color  : #ff5252;
+    content: '\2717';
+}
